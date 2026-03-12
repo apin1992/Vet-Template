@@ -7,8 +7,8 @@ import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
 
-const WHATSAPP_NUMBER = "526373727172";
-const PHONE_NUMBER = "6373727172";
+const WHATSAPP_NUMBER = "52637-123-4567";
+const PHONE_NUMBER = "637-123-4567";
 
 const services = [
   { icon: Stethoscope, title: "Consulta General", desc: "Revisión completa de la salud de tu mascota con diagnóstico profesional." },
@@ -27,7 +27,7 @@ const testimonials = [
     pet: "Chihuahua",
   },
   {
-    name: "Carlos Mendoza",
+    name: "Carla Mendoza",
     image: testimonial2,
     text: "Llevé a mi golden retriever de emergencia y lo atendieron de inmediato. Muy agradecido con todo el equipo.",
     pet: "Golden Retriever",
@@ -55,8 +55,8 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <img src={logo} alt="Logo Clínica Veterinaria Caborca" className="h-9 w-9 rounded-full object-cover" />
-            <span className="font-heading font-extrabold text-lg text-foreground">Clínica Veterinaria Caborca</span>
+            <img src={logo} alt="Logo Veterinaria Caborca" className="h-9 w-9 rounded-full object-cover" />
+            <span className="font-heading font-extrabold text-lg text-foreground">Veterinaria Caborca</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
             <a href="#servicios" className="hover:text-primary transition-colors">Servicios</a>
@@ -178,7 +178,7 @@ const Index = () => {
                 Pasión por el bienestar animal
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                En Clínica Veterinaria Caborca nos dedicamos a brindar la mejor atención médica para tus mascotas.
+                En Veterinaria Caborca nos dedicamos a brindar la mejor atención médica para tus mascotas.
                 Contamos con profesionales capacitados y equipo moderno para ofrecer diagnósticos precisos y tratamientos efectivos.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
@@ -260,7 +260,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-foreground">Dirección</h3>
-                  <p className="text-muted-foreground text-sm mt-1">Benito Juárez y Avenida O 200, Centro, 83600 Heroica Caborca, Son.</p>
+                  <p className="text-muted-foreground text-sm mt-1">123 Pet Care Street Veterinary District Caborca, Sonora</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -270,7 +270,7 @@ const Index = () => {
                 <div>
                   <h3 className="font-heading font-bold text-foreground">Teléfono</h3>
                   <a href={`tel:${PHONE_NUMBER}`} className="text-primary text-sm mt-1 hover:underline block">
-                    (637) 372-7172
+                    (637)123-4567
                   </a>
                 </div>
               </div>
@@ -287,8 +287,8 @@ const Index = () => {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-card h-80">
               <iframe
-                title="Ubicación Clínica Veterinaria Caborca"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.5!2d-112.1598!3d30.7133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86d0494e5b6f5555%3A0x1234567890abcdef!2sBenito%20Ju%C3%A1rez%20y%20Av%20O%20200%2C%20Centro%2C%2083600%20Heroica%20Caborca%2C%20Son.!5e0!3m2!1ses!2smx!4v1"
+                title="Ubicación Veterinaria Caborca"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d219507.7306052923!2d-112.34612874933259!3d30.72378943880387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86d314866a76821d%3A0xd6de8eaf8052d58c!2sCaborca%2C%20Sonora!5e0!3m2!1sen!2smx!4v1773344314241!5m2!1sen!2smx"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -325,7 +325,7 @@ const Index = () => {
               className="bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground px-8 py-4 rounded-xl font-bold text-base hover:bg-primary-foreground/20 transition-colors flex items-center gap-2"
             >
               <Phone className="h-5 w-5" />
-              (637) 372-7172
+              (637)123-4567
             </a>
           </div>
         </div>
@@ -337,10 +337,10 @@ const Index = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
               <img src={logo} alt="Logo Clínica Veterinaria Caborca" className="h-7 w-7 rounded-full object-cover" />
-              <span className="font-heading font-bold text-primary-foreground text-sm">Clínica Veterinaria Caborca</span>
+              <span className="font-heading font-bold text-primary-foreground text-sm">Veterinaria Caborca</span>
             </div>
             <p className="text-primary-foreground/50 text-xs">
-              © {new Date().getFullYear()} Clínica Veterinaria Caborca. Todos los derechos reservados.
+              © {new Date().getFullYear()} Veterinaria Caborca. Todos los derechos reservados.
             </p>
           </div>
         </div>
