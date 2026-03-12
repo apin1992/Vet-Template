@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
+import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown, Menu, X, Star } from "lucide-react";
 import heroImage from "@/assets/hero-vet.jpg";
 import petsGroup from "@/assets/pets-group.jpg";
+import logo from "@/assets/logo1.jpg";
+import testimonial1 from "@/assets/testimonial-1.jpg";
+import testimonial2 from "@/assets/testimonial-2.jpg";
+import testimonial3 from "@/assets/testimonial-3.jpg";
 
 const WHATSAPP_NUMBER = "526373727172";
 const PHONE_NUMBER = "6373727172";
@@ -13,6 +17,27 @@ const services = [
   { icon: HeartPulse, title: "Urgencias", desc: "Atención de emergencia para cuando tu mascota más lo necesita." },
   { icon: PawPrint, title: "Estética Canina", desc: "Baño, corte y cuidado profesional para tu mascota." },
   { icon: Clock, title: "Desparasitación", desc: "Protege a tu mascota contra parásitos internos y externos." },
+];
+
+const testimonials = [
+  {
+    name: "María López",
+    image: testimonial1,
+    text: "Excelente atención para mi chihuahua. El doctor fue muy amable y profesional. ¡Mi mascota salió como nueva!",
+    pet: "Chihuahua",
+  },
+  {
+    name: "Carlos Mendoza",
+    image: testimonial2,
+    text: "Llevé a mi golden retriever de emergencia y lo atendieron de inmediato. Muy agradecido con todo el equipo.",
+    pet: "Golden Retriever",
+  },
+  {
+    name: "Ana García",
+    image: testimonial3,
+    text: "Mis gatitos siempre reciben el mejor cuidado aquí. Las vacunas, la desparasitación, todo impecable. ¡Los recomiendo al 100%!",
+    pet: "Gatos",
+  },
 ];
 
 const Index = () => {
@@ -30,12 +55,13 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <PawPrint className="h-7 w-7 text-primary" />
+            <img src={logo} alt="Logo Clínica Veterinaria Caborca" className="h-9 w-9 rounded-full object-cover" />
             <span className="font-heading font-extrabold text-lg text-foreground">Clínica Veterinaria Caborca</span>
           </div>
           <div className="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
             <a href="#servicios" className="hover:text-primary transition-colors">Servicios</a>
             <a href="#nosotros" className="hover:text-primary transition-colors">Nosotros</a>
+            <a href="#testimonios" className="hover:text-primary transition-colors">Testimonios</a>
             <a href="#ubicacion" className="hover:text-primary transition-colors">Ubicación</a>
             <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
           </div>
@@ -58,11 +84,11 @@ const Index = () => {
             </button>
           </div>
         </div>
-        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-card border-t border-border px-4 py-4 flex flex-col gap-3 text-sm font-medium text-muted-foreground">
             <a href="#servicios" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Servicios</a>
             <a href="#nosotros" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Nosotros</a>
+            <a href="#testimonios" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Testimonios</a>
             <a href="#ubicacion" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Ubicación</a>
             <a href="#contacto" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Contacto</a>
           </div>
@@ -183,8 +209,42 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
+      <section id="testimonios" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-14">
+            <span className="text-primary font-semibold text-sm tracking-wider uppercase">Testimonios</span>
+            <h2 className="font-heading font-extrabold text-3xl md:text-4xl text-foreground mt-2">
+              Lo que dicen nuestros clientes
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-shadow duration-300"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-accent text-accent" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+                <div className="flex items-center gap-3">
+                  <img src={t.image} alt={t.name} className="h-12 w-12 rounded-full object-cover" />
+                  <div>
+                    <div className="font-heading font-bold text-foreground text-sm">{t.name}</div>
+                    <div className="text-muted-foreground text-xs">Dueño/a de {t.pet}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Location */}
-      <section id="ubicacion" className="py-20 bg-background">
+      <section id="ubicacion" className="py-20 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <span className="text-primary font-semibold text-sm tracking-wider uppercase">Encuéntranos</span>
@@ -200,7 +260,7 @@ const Index = () => {
                 </div>
                 <div>
                   <h3 className="font-heading font-bold text-foreground">Dirección</h3>
-                  <p className="text-muted-foreground text-sm mt-1">Calle Ejemplo #123, Col. Centro, Caborca, Sonora, México</p>
+                  <p className="text-muted-foreground text-sm mt-1">Benito Juárez y Avenida O 200, Centro, 83600 Heroica Caborca, Son.</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -210,7 +270,7 @@ const Index = () => {
                 <div>
                   <h3 className="font-heading font-bold text-foreground">Teléfono</h3>
                   <a href={`tel:${PHONE_NUMBER}`} className="text-primary text-sm mt-1 hover:underline block">
-                    (637) 123-4567
+                    (637) 372-7172
                   </a>
                 </div>
               </div>
@@ -228,7 +288,7 @@ const Index = () => {
             <div className="rounded-2xl overflow-hidden shadow-card h-80">
               <iframe
                 title="Ubicación Clínica Veterinaria Caborca"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d54389.41!2d-112.16!3d30.72!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86cf5f5d5e5e5e5d%3A0x5e5e5e5e5e5e5e5e!2sCaborca%2C%20Sonora!5e0!3m2!1ses!2smx!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.5!2d-112.1598!3d30.7133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86d0494e5b6f5555%3A0x1234567890abcdef!2sBenito%20Ju%C3%A1rez%20y%20Av%20O%20200%2C%20Centro%2C%2083600%20Heroica%20Caborca%2C%20Son.!5e0!3m2!1ses!2smx!4v1"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
@@ -265,7 +325,7 @@ const Index = () => {
               className="bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground px-8 py-4 rounded-xl font-bold text-base hover:bg-primary-foreground/20 transition-colors flex items-center gap-2"
             >
               <Phone className="h-5 w-5" />
-              (637) 3727-172
+              (637) 372-7172
             </a>
           </div>
         </div>
@@ -276,7 +336,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-2">
-              <PawPrint className="h-6 w-6 text-primary" />
+              <img src={logo} alt="Logo Clínica Veterinaria Caborca" className="h-7 w-7 rounded-full object-cover" />
               <span className="font-heading font-bold text-primary-foreground text-sm">Clínica Veterinaria Caborca</span>
             </div>
             <p className="text-primary-foreground/50 text-xs">
