@@ -1,4 +1,5 @@
-import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
 import heroImage from "@/assets/hero-vet.jpg";
 import petsGroup from "@/assets/pets-group.jpg";
 
@@ -15,9 +16,13 @@ const services = [
 ];
 
 const Index = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   const scrollToServices = () => {
     document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" });
   };
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -34,16 +39,34 @@ const Index = () => {
             <a href="#ubicacion" className="hover:text-primary transition-colors">Ubicación</a>
             <a href="#contacto" className="hover:text-primary transition-colors">Contacto</a>
           </div>
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20quisiera%20agendar%20una%20cita`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
-          >
-            <MessageCircle className="h-4 w-4" />
-            <span className="hidden sm:inline">WhatsApp</span>
-          </a>
+          <div className="flex items-center gap-2">
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=Hola,%20quisiera%20agendar%20una%20cita`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-semibold hover:opacity-90 transition-opacity flex items-center gap-2"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="hidden sm:inline">WhatsApp</span>
+            </a>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+              aria-label="Abrir menú"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
         </div>
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-card border-t border-border px-4 py-4 flex flex-col gap-3 text-sm font-medium text-muted-foreground">
+            <a href="#servicios" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Servicios</a>
+            <a href="#nosotros" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Nosotros</a>
+            <a href="#ubicacion" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Ubicación</a>
+            <a href="#contacto" onClick={closeMobileMenu} className="hover:text-primary transition-colors py-2">Contacto</a>
+          </div>
+        )}
       </nav>
 
       {/* Hero */}
