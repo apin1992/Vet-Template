@@ -3,8 +3,8 @@ import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPr
 import heroImage from "@/assets/hero-vet.jpg";
 import petsGroup from "@/assets/pets-group.jpg";
 
-const WHATSAPP_NUMBER = "526371234567";
-const PHONE_NUMBER = "6371234567";
+const WHATSAPP_NUMBER = "526373727172";
+const PHONE_NUMBER = "6373727172";
 
 const services = [
   { icon: Stethoscope, title: "Consulta General", desc: "Revisión completa de la salud de tu mascota con diagnóstico profesional." },
@@ -265,7 +265,7 @@ const Index = () => {
               className="bg-primary-foreground/10 border border-primary-foreground/30 text-primary-foreground px-8 py-4 rounded-xl font-bold text-base hover:bg-primary-foreground/20 transition-colors flex items-center gap-2"
             >
               <Phone className="h-5 w-5" />
-              (637) 123-4567
+              (637) 3727-172
             </a>
           </div>
         </div>
