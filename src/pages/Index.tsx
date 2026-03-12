@@ -1,4 +1,5 @@
-import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Phone, MapPin, Clock, Stethoscope, Syringe, Scissors, HeartPulse, PawPrint, MessageCircle, ChevronDown, Menu, X } from "lucide-react";
 import heroImage from "@/assets/hero-vet.jpg";
 import petsGroup from "@/assets/pets-group.jpg";
 
